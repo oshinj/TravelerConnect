@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "833045941696",
+    "firebase_url": "https://travelerconnect-d0664.firebaseio.com",
+    "project_id": "travelerconnect-d0664",
+    "storage_bucket": "travelerconnect-d0664.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:833045941696:android:77b9d917e67254345bcc25",
+        "android_client_info": {
+          "package_name": "edu.ucsb.cs184.oshin.travelerconnect"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "833045941696-98bjt0021pm2sesrgbsmrud9ma3pr2im.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.ucsb.cs184.oshin.travelerconnect",
+            "certificate_hash": "a01de1c2eaa41629d144ade3af5feb9351830d42"
+          }
+        },
+        {
+          "client_id": "833045941696-c99sbujt8rukstepa4d7u0u3kj65o24b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCM-Fdylh6Znk2apzj5sLIzAJfYMR9MhSw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "833045941696-c99sbujt8rukstepa4d7u0u3kj65o24b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
