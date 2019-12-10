@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         val signupB: View = findViewById(R.id.signup_button)
-        val loginB: Button = findViewById(R.id.button)
+        val loginB: Button = findViewById(R.id.Login)
         var emailV: EditText = findViewById(R.id.user_login)
         var passwordV: EditText = findViewById(R.id.password_login)
 
