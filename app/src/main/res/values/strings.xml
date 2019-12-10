@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">TravelerConnect</string>
-    <string name="user_name">Username</string>
+    <string name="user_name">Email</string>
     <string name="password">Password</string>
     <string name="sign_up">Sign up</string>
     <string name="login">Login</string>
@@ -13,4 +13,21 @@
     <string name="confirm">Confirm</string>
     <string name="back">Back</string>
     <string name="title_activity_sign_up">SignUpActivity</string>
+
+    <string-array name="gender_options">
+        <item>female</item>
+        <item>male</item>
+        <item>nonbinary</item>
+    </string-array>
+
+    <!--Interests-->
+    <string name="bars">Bars</string>
+    <string name="beaches">Beaches</string>
+    <string name="clubs">Clubs</string>
+    <string name="extreme_sports">Extreme Sports</string>
+    <string name="athletics">Athletics</string>
+    <string name="hiking">Hiking</string>
+    <string name="sightseeing">Sightseeing</string>
+    <string name="close">close</string>
+
 </resources>
