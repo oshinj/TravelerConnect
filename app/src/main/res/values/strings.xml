@@ -13,4 +13,19 @@
     <string name="confirm">Confirm</string>
     <string name="back">Back</string>
     <string name="title_activity_sign_up">SignUpActivity</string>
+
+
+    <!--
+    activity_main_user_page
+    -->
+    <string name="lookup">Look</string>
+    <string name="myFriend">My Friend</string>
+
+    <string name="Back">Back</string>
+
+
+    <!--
+    activity_main_look
+    -->
+    <string name="user">User</string>
 </resources>

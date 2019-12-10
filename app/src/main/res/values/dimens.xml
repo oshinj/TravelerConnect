@@ -3,4 +3,11 @@
 <resources>
     <dimen name="loginButtonSize">30sp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+
+
+    <!--
+    activity_main_user_page
+    -->
+    <dimen name="main_user_page_buttonSize">30sp</dimen>
+
 </resources>
