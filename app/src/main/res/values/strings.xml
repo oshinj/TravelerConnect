@@ -20,6 +20,7 @@
     -->
     <string name="lookup">Look</string>
     <string name="myFriend">My Friend</string>
+    <string name="friendRequestBox">Friend Request Box</string>
 
     <string name="Back">Back</string>
 
@@ -28,4 +29,21 @@
     activity_main_look
     -->
     <string name="user">User</string>
+
+
+    <string-array name="gender_options">
+        <item>female</item>
+        <item>male</item>
+        <item>nonbinary</item>
+    </string-array>
+
+    <!--Interests-->
+    <string name="bars">Bars</string>
+    <string name="beaches">Beaches</string>
+    <string name="clubs">Clubs</string>
+    <string name="extreme_sports">Extreme Sports</string>
+    <string name="athletics">Athletics</string>
+    <string name="hiking">Hiking</string>
+    <string name="sightseeing">Sightseeing</string>
+    <string name="close">close</string>
 </resources>
