@@ -56,14 +56,14 @@ public class Main_UserFriendRequestBox extends AppCompatActivity {
         sv.addView(linearLayout);
 
         DatabaseReference reff;
-        reff = FirebaseDatabase.getInstance().getReference().child("FriendRequestTable").child(MyUID);
+        reff = FirebaseDatabase.getInstance().getReference();
 
         reff.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 linearLayout.removeAllViews();
 
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                for (DataSnapshot snapshot : dataSnapshot.child("FriendRequestTable").child(MyUID).getChildren()) {
                     if(snapshot.child("status").getValue().toString().equalsIgnoreCase("pending")) {
                         String UID = snapshot.getKey();
 
@@ -90,14 +90,16 @@ public class Main_UserFriendRequestBox extends AppCompatActivity {
                             }
                         });
 
+
                         ib.setImageResource(R.drawable.ic_android_black_);
                         LinearLayout.LayoutParams imageViewParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
                         ib.setLayoutParams(imageViewParams);
                         linearLayout2.addView(ib);
 
+                        String Bio = dataSnapshot.child("UserInfo").child(UID).child("Bio").getValue().toString();
                         final TextView tv = new TextView(context);
                         LinearLayout.LayoutParams testViewParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-                        tv.setText(UID + "wants to add you as friends, hit confirm to get his/her number!");
+                        tv.setText(Bio + " I want to add you as friends. :)");
                         tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 35);
                         tv.setLayoutParams(testViewParams);
                         linearLayout2.addView(tv);
