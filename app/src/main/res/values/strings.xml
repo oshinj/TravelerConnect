@@ -14,7 +14,6 @@
     <string name="back">Back</string>
     <string name="title_activity_sign_up">SignUpActivity</string>
 
-
     <!--
     activity_main_user_page
     -->
@@ -29,7 +28,6 @@
     activity_main_look
     -->
     <string name="user">User</string>
-
 
     <string-array name="gender_options">
         <item>female</item>
