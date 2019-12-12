@@ -136,7 +136,7 @@
         android:layout_marginTop="30dp"
         android:ems="10"
         android:hint="@string/password"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
         app:layout_constraintEnd_toStartOf="@+id/right_guideline"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/left_guideline"

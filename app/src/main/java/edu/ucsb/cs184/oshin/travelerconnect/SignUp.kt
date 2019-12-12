@@ -144,7 +144,6 @@ class SignUp : AppCompatActivity() {
                 if (email.isNotEmpty() and pass.isNotEmpty() and bio.isNotEmpty() and phone.isNotEmpty() and gender.isNotEmpty() and curloc.isNotEmpty()) {
                     // create account
                     createAccount(email, pass, phone, bio, gender, curloc)
-                    finish()
                 } else {
                     // ask to enter email and password
                     val toast =
@@ -216,6 +215,7 @@ class SignUp : AppCompatActivity() {
 
                     val toast = Toast.makeText(this, myRef.child("Bio").toString(), Toast.LENGTH_LONG)
                     toast.show()
+                    finish()
                 } else {
                     // If sign in fails, display a message to the user
                     // TODO: make failure message more user friendly (for incorrectly formatted email/bad password)
