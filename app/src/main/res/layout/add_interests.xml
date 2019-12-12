@@ -44,7 +44,6 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.96" />
 
-
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
@@ -122,6 +121,5 @@
         app:layout_constraintBottom_toTopOf="@+id/bottom_guideline2"
         app:layout_constraintEnd_toStartOf="@+id/right_guideline"
         app:layout_constraintStart_toStartOf="@+id/left_guideline" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

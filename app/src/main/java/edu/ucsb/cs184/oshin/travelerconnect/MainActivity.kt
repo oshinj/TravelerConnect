@@ -61,7 +61,6 @@ class MainActivity : AppCompatActivity() {
             val toast = Toast.makeText(this, "Logged out", Toast.LENGTH_SHORT)
             toast.show()
         }
-    }
 
     private fun updateUI(currentUser: FirebaseUser?) {
         val intent = Intent(this, Main_UserMenu::class.java).apply {

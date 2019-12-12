@@ -23,7 +23,6 @@ class SignUp : AppCompatActivity() {
     private var database: FirebaseDatabase? = null
     private var interests: ArrayList<String> = ArrayList<String>()
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_sign_up)
@@ -154,40 +153,40 @@ override fun onStart() {
         }
         finish()
     }
-}
+  
+    private fun createAccount(email: String, pass: String, phone: String, bio: String, gender: String, curloc: String) {
+        // TODO: add validation for email/password
+        // Creates account through firebase
+        mAuth!!.createUserWithEmailAndPassword(email, pass)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    // Sign up success, update UI with the signed-in user's information
+                    val user = mAuth!!.currentUser
+                    val uid = user!!.uid
 
-private fun createAccount(email: String, pass: String, phone: String, bio: String, gender: String, curloc: String) {
-    // TODO: add validation for email/password
-    // Creates account through firebase
-    mAuth!!.createUserWithEmailAndPassword(email, pass)
-        .addOnCompleteListener(this) { task ->
-            if (task.isSuccessful) {
-                // Sign up success, update UI with the signed-in user's information
-                val user = mAuth!!.currentUser
-                val uid = user!!.uid
+                    val myRef = database!!.getReference("UserInfo/" + uid)
+                    myRef.child("Bio").setValue(bio)
+                    myRef.child("Contact").setValue(phone)
+                    myRef.child("Gender").setValue(gender)
+                    myRef.child("Visit").setValue(curloc)
+                    for(i in 0..interests!!.size-1) {
+                        myRef.child("Interests").child("interest_" + (i+1).toString()).setValue(interests!!.get(i))
+                    }
 
-                val myRef = database!!.getReference("UserInfo/" + uid)
-                myRef.child("Bio").setValue(bio)
-                myRef.child("Contact").setValue(phone)
-                myRef.child("Gender").setValue(gender)
-                myRef.child("Visit").setValue(curloc)
-                for(i in 0..interests!!.size-1) {
-                    myRef.child("Interests").child("interest_" + (i+1).toString()).setValue(interests!!.get(i))
+                    val toast = Toast.makeText(this, myRef.child("Bio").toString(), Toast.LENGTH_LONG)
+                    toast.show()
+                } else {
+                    // If sign in fails, display a message to the user
+                    // TODO: make failure message more user friendly (for incorrectly formatted email/bad password)
+                    val toast = Toast.makeText(this, task.exception.toString(), Toast.LENGTH_SHORT)
+                    toast.show()
                 }
-
-                val toast = Toast.makeText(this, myRef.child("Bio").toString(), Toast.LENGTH_LONG)
-                toast.show()
-            } else {
-                // If sign in fails, display a message to the user
-                // TODO: make failure message more user friendly (for incorrectly formatted email/bad password)
-                val toast = Toast.makeText(this, task.exception.toString(), Toast.LENGTH_SHORT)
-                toast.show()
             }
-        }
 
-}
+    }
 
-private fun updateUI(currentUser: FirebaseUser?) {
-    // current placeholder
+    private fun updateUI(currentUser: FirebaseUser?) {
+        // current placeholder
+    }
 }
 }
