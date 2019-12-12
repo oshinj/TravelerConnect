@@ -87,5 +87,20 @@
         app:layout_constraintTop_toTopOf="@+id/bottom_guideline2"
         app:srcCompat="@android:drawable/ic_menu_preferences" />
 
+    <Button
+        android:id="@+id/logout_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/logout"
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        app:layout_constraintEnd_toStartOf="@+id/right_guideline" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.13" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

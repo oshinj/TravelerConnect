@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
-        android:background="#F7F0F0"
+        android:background="#3C3F41"
         android:text="@string/extreme_sports"
         app:layout_constraintBottom_toTopOf="@+id/close_popup"
         app:layout_constraintEnd_toEndOf="parent"

@@ -26,9 +26,10 @@ class MainActivity : AppCompatActivity() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
         if (mAuth!!.currentUser != null) {
-            val toast = Toast.makeText(this, mAuth!!.currentUser!!.uid, Toast.LENGTH_LONG)
-            toast.show()
-            val currentUser = mAuth?.currentUser
+            val intent = Intent(this, Main_UserMenu::class.java).apply {
+                putExtra("uid", Uid)
+            }
+            startActivity(intent)
         }
 
         val signupB: View = findViewById(R.id.signup_button)
@@ -57,13 +58,6 @@ class MainActivity : AppCompatActivity() {
         signupB.setOnClickListener {
             val intent = Intent(this, SignUp::class.java)
             startActivity(intent)
-        }
-
-        val testLogout: Button = findViewById(R.id.button2)
-        testLogout.setOnClickListener {
-            mAuth!!.signOut()
-            val toast = Toast.makeText(this, "Logged out", Toast.LENGTH_SHORT)
-            toast.show()
         }
     }
 

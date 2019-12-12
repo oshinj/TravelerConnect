@@ -5,11 +5,13 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -17,9 +19,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class Main_UserMenu extends AppCompatActivity {
+    private FirebaseAuth mAuth;
+
     private Button look;
     private Button myFriend;
     private Button friendRequestBox;
+    private Button logout;
     private FloatingActionButton fab;
     private String UID;
     private Handler handler = new Handler();
@@ -39,6 +44,9 @@ public class Main_UserMenu extends AppCompatActivity {
         myFriend = findViewById(R.id.main_user_page_myFriend);
         friendRequestBox = findViewById(R.id.main_user_page_friendRequestBox);
         friendRequestBox.setVisibility(View.INVISIBLE);
+        logout = findViewById(R.id.logout_button);
+        mAuth = FirebaseAuth.getInstance();
+
 
         look.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -51,6 +59,13 @@ public class Main_UserMenu extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 openMain_User_MyFriend();
+            }
+        });
+
+        logout.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Logout();
             }
         });
 
@@ -142,6 +157,12 @@ public class Main_UserMenu extends AppCompatActivity {
 
     public void openSettings() {
         Intent intent = new Intent(this, SignUp.class);
+        startActivity(intent);
+    }
+
+    private void Logout() {
+        mAuth.signOut();
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 }
