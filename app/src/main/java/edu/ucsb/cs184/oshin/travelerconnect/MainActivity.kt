@@ -14,6 +14,7 @@ import android.widget.EditText
 class MainActivity : AppCompatActivity() {
 
     private var mAuth: FirebaseAuth? = null
+    private var Uid = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,10 +61,12 @@ class MainActivity : AppCompatActivity() {
             val toast = Toast.makeText(this, "Logged out", Toast.LENGTH_SHORT)
             toast.show()
         }
-    }
 
     private fun updateUI(currentUser: FirebaseUser?) {
-        // TODO: add logic for checking if need to go to info page or general page
+        val intent = Intent(this, Main_UserMenu::class.java).apply {
+            putExtra("uid", Uid)
+        }
+        startActivity(intent)
     }
 
     private fun logIn(email: String, pass: String) {
@@ -73,13 +76,14 @@ class MainActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     val user = mAuth!!.getCurrentUser()
+                    Uid =  mAuth!!.currentUser!!.uid
                     updateUI(user)
                 } else {
-                    // If sign in fails, display a message to the user.
-                    val toast = Toast.makeText(this, task.exception.toString(), Toast.LENGTH_SHORT)
-                    toast.show()
-                    updateUI(null)
+                        // If sign in fails, display a message to the user.
+                        val toast = Toast.makeText(this, task.exception.toString(), Toast.LENGTH_SHORT)
+                        toast.show()
+                        updateUI(null)
+                    }
                 }
             }
     }
-}
