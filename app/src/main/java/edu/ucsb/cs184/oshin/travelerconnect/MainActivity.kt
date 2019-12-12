@@ -54,12 +54,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val testLogout: Button = findViewById(R.id.button2)
-        testLogout.setOnClickListener {
-            mAuth!!.signOut()
-            val toast = Toast.makeText(this, "Logged out", Toast.LENGTH_SHORT)
-            toast.show()
-        }
+//        val testLogout: Button = findViewById(R.id.button2)
+//        testLogout.setOnClickListener {
+//            mAuth!!.signOut()
+//            val toast = Toast.makeText(this, "Logged out", Toast.LENGTH_SHORT)
+//            toast.show()
+//        }
     }
 
     private fun updateUI(currentUser: FirebaseUser?) {
