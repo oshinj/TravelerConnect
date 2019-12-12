@@ -25,9 +25,11 @@ public class Main_User_MyFriend_ContactDialog extends DialogFragment {
     private Context context;
     private String ClickedUID;
     private LinearLayout linearLayout;
+    private String MyUID;
 
-    public Main_User_MyFriend_ContactDialog(String ClickedUID){
+    public Main_User_MyFriend_ContactDialog(String ClickedUID, String MyUID){
         this.ClickedUID = ClickedUID;
+        this.MyUID = MyUID;
     }
 
 
@@ -54,6 +56,12 @@ public class Main_User_MyFriend_ContactDialog extends DialogFragment {
         AlertDialog ad = new AlertDialog.Builder(getActivity())
                 .setView(sv)
                 .setPositiveButton("confirm", null)
+                .setNegativeButton("delete", new DialogInterface.OnClickListener(){
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        DeleteFriend();
+                    }
+                })
                 .create();
 
         ad.getWindow().setLayout(600, 400);
@@ -99,5 +107,19 @@ public class Main_User_MyFriend_ContactDialog extends DialogFragment {
 
 
         return ad;
+    }
+
+    private void DeleteFriend(){
+        DatabaseReference reff2 = FirebaseDatabase.getInstance().getReference().child("FriendRequestTable").child(ClickedUID).child(MyUID);
+        reff2.removeValue();
+
+        reff2 = FirebaseDatabase.getInstance().getReference().child("FriendRequestTable").child(MyUID).child(ClickedUID);
+        reff2.removeValue();
+
+        reff2 = FirebaseDatabase.getInstance().getReference().child("FriendTable").child(ClickedUID).child(MyUID);
+        reff2.removeValue();
+
+        reff2 = FirebaseDatabase.getInstance().getReference().child("FriendTable").child(MyUID).child(ClickedUID);
+        reff2.removeValue();
     }
 }

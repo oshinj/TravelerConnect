@@ -92,7 +92,7 @@ public class Main_User_MyFriend extends AppCompatActivity{
                     ib.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            ImageButtonClicked(ib);
+                            ImageButtonClicked(ib, MyUID);
                         }
                     });
 
@@ -204,8 +204,8 @@ public class Main_User_MyFriend extends AppCompatActivity{
     }
 
 
-    private void ImageButtonClicked(ImageButton ib){
-        Main_User_MyFriend_ContactDialog mumc = new Main_User_MyFriend_ContactDialog(hm.get(ib));
+    private void ImageButtonClicked(ImageButton ib, String MyUID){
+        Main_User_MyFriend_ContactDialog mumc = new Main_User_MyFriend_ContactDialog(hm.get(ib), MyUID);
         mumc.show(this.getSupportFragmentManager(), "Diag");
     }
 
