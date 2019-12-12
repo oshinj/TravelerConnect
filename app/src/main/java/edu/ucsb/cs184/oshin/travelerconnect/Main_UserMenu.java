@@ -62,8 +62,10 @@ public class Main_UserMenu extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 request = 0;
                 for(DataSnapshot snapshot: dataSnapshot.child(UID).getChildren()){
-                    if(snapshot.child("status").getValue().toString().equalsIgnoreCase("pending")){
-                        request++;
+                    if(snapshot.child("status").getValue() != null) {
+                        if (snapshot.child("status").getValue().toString().equalsIgnoreCase("pending")) {
+                            request++;
+                        }
                     }
                 }
 
@@ -114,9 +116,7 @@ public class Main_UserMenu extends AppCompatActivity {
         this.fab.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                //TO DO:
-                // implement setting
-                System.out.println("uid is " + UID);
+                openSettings();
             }
         });
     }
@@ -140,5 +140,8 @@ public class Main_UserMenu extends AppCompatActivity {
         startActivity(intent);
     }
 
-
+    public void openSettings() {
+        Intent intent = new Intent(this, SignUp.class);
+        startActivity(intent);
+    }
 }
