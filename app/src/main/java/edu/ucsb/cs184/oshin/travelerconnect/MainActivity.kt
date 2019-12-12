@@ -45,7 +45,11 @@ class MainActivity : AppCompatActivity() {
                 logIn(email, pass)
             } else {
                 // ask to enter email and password
-                val toast = Toast.makeText(this, "Please enter an email and password to login.", Toast.LENGTH_SHORT)
+                val toast = Toast.makeText(
+                    this,
+                    "Please enter an email and password to login.",
+                    Toast.LENGTH_SHORT
+                )
                 toast.show()
             }
         }
@@ -61,6 +65,7 @@ class MainActivity : AppCompatActivity() {
             val toast = Toast.makeText(this, "Logged out", Toast.LENGTH_SHORT)
             toast.show()
         }
+    }
 
     private fun updateUI(currentUser: FirebaseUser?) {
         val intent = Intent(this, Main_UserMenu::class.java).apply {
@@ -83,7 +88,7 @@ class MainActivity : AppCompatActivity() {
                         val toast = Toast.makeText(this, task.exception.toString(), Toast.LENGTH_SHORT)
                         toast.show()
                         updateUI(null)
-                    }
                 }
             }
     }
+}
