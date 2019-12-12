@@ -1,13 +1,13 @@
 <resources>
     <string name="app_name">TravelerConnect</string>
-    <string name="user_name">Username</string>
+    <string name="user_name">Email</string>
     <string name="password">Password</string>
     <string name="sign_up">Sign up</string>
     <string name="login">Login</string>
 
     <string name="bio">Bio</string>
     <string name="phone_number">Phone number</string>
-    <string name="current_location">Current location</string>
+    <string name="current_location">Visiting</string>
     <string name="gender">Gender</string>
     <string name="add_interest">Add interests</string>
     <string name="confirm">Confirm</string>
@@ -20,6 +20,7 @@
     <string name="lookup">Look</string>
     <string name="myFriend">My Friend</string>
     <string name="friendRequestBox">Friend Request Box</string>
+    <string name="logout">Logout</string>
 
     <string name="Back">Back</string>
 

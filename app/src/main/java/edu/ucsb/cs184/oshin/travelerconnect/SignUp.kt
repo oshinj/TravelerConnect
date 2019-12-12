@@ -144,6 +144,7 @@ class SignUp : AppCompatActivity() {
                 if (email.isNotEmpty() and pass.isNotEmpty() and bio.isNotEmpty() and phone.isNotEmpty() and gender.isNotEmpty() and curloc.isNotEmpty()) {
                     // create account
                     createAccount(email, pass, phone, bio, gender, curloc)
+                    finish()
                 } else {
                     // ask to enter email and password
                     val toast =
