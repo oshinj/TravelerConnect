@@ -66,14 +66,14 @@ public class Main_User_MyFriend extends AppCompatActivity{
         sv.addView(linearLayout);
 
         DatabaseReference reff;
-        reff = FirebaseDatabase.getInstance().getReference().child("FriendTable").child(MyUID);
+        reff = FirebaseDatabase.getInstance().getReference();
 
-        reff.addValueEventListener(new ValueEventListener() {
+        reff.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 linearLayout.removeAllViews();
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                for (DataSnapshot snapshot : dataSnapshot.child("FriendTable").child(MyUID).getChildren()) {
 
                     String UID = snapshot.getKey();
                     LinearLayout linearLayout2 = new LinearLayout(context);
@@ -103,8 +103,10 @@ public class Main_User_MyFriend extends AppCompatActivity{
 
                     final TextView tv = new TextView(context);
                     LinearLayout.LayoutParams testViewParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-                    tv.setText(UID + "His/Her number");
-                    tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 35);
+
+                    String Bio = dataSnapshot.child("UserInfo").child(UID).child("Bio").getValue().toString();
+                    tv.setText(Bio + " Hit to get his/her number");
+                    tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25);
                     tv.setLayoutParams(testViewParams);
                     linearLayout2.addView(tv);
 
@@ -155,10 +157,12 @@ public class Main_User_MyFriend extends AppCompatActivity{
                                 @Override
                                 public void run() {
                                     TextView warning = new TextView(context);
-                                    warning.setText("Hit the image to enlonger the friend limit! Otherwise your friend will be deleted after 24 hours");
+                                    tv.setText( tv.getText() + "\n" + "Hit the image to enlonger the friend limit! Otherwise your friend will be deleted after 24 hours");
                                     LinearLayout.LayoutParams warningViewParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-                                    warning.setTextColor(Color.RED);
-                                    linearLayout.addView(warning);
+                                    tv.setTextColor(Color.RED);
+                                    //linearLayout.addView(warning);
+
+
 
                                     ib.setOnClickListener(new View.OnClickListener() {
                                         @Override
