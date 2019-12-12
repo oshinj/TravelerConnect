@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "833045941696-5o8ppc4hsd2i5ivn1hmu61fujfr5tsod.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.ucsb.cs184.oshin.travelerconnect",
+            "certificate_hash": "880729db08ff9ef93006c8750257acbbe9ca4696"
+          }
+        },
+        {
           "client_id": "833045941696-98bjt0021pm2sesrgbsmrud9ma3pr2im.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
