@@ -19,6 +19,8 @@
         </activity>
         <activity android:name=".Main_UserLook"></activity>
         <activity android:name=".Main_UserMenu"></activity>
+        <activity android:name=".Main_UserFriendRequestBox"></activity>
+        <activity android:name=".Main_User_MyFriend"></activity>
 
     </application>
 
