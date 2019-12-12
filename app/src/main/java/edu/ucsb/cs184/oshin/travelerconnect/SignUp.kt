@@ -136,14 +136,24 @@ class SignUp : AppCompatActivity() {
             val gender = genderS.selectedItem.toString()
             val curloc = curlocV.text.toString()
 
-            if (email.isNotEmpty() and pass.isNotEmpty() and bio.isNotEmpty() and phone.isNotEmpty() and gender.isNotEmpty() and curloc.isNotEmpty()) {
-                // create account
-                createAccount(email, pass, phone, bio, gender, curloc)
+            if (mAuth!!.currentUser != null) {
+                updateInfo(phone, bio, gender, curloc)
+                Toast.makeText(this, "Fields Updated", Toast.LENGTH_SHORT)
+                finish()
             } else {
-                // ask to enter email and password
-                val toast =
-                    Toast.makeText(this, "Please fill in all fields to sign up", Toast.LENGTH_SHORT)
-                toast.show()
+                if (email.isNotEmpty() and pass.isNotEmpty() and bio.isNotEmpty() and phone.isNotEmpty() and gender.isNotEmpty() and curloc.isNotEmpty()) {
+                    // create account
+                    createAccount(email, pass, phone, bio, gender, curloc)
+                } else {
+                    // ask to enter email and password
+                    val toast =
+                        Toast.makeText(
+                            this,
+                            "Please fill in all fields to sign up",
+                            Toast.LENGTH_SHORT
+                        )
+                    toast.show()
+                }
             }
         }
 
@@ -157,6 +167,33 @@ class SignUp : AppCompatActivity() {
         }
     }
 
+    private fun updateInfo(phone: String, bio: String, gender: String, curloc: String) {
+        val user = mAuth!!.currentUser
+        val uid = user!!.uid
+
+        val myRef = database!!.getReference("UserInfo/$uid")
+
+        if (!phone.isNullOrBlank()) {
+            myRef.child("Contact").setValue(phone)
+        }
+        if (!bio.isNullOrBlank()) {
+            myRef.child("Bio").setValue(bio)
+        }
+        if (!phone.isNullOrBlank()) {
+            myRef.child("Contact").setValue(phone)
+        }
+        if (!gender.isNullOrBlank()) {
+            myRef.child("Gender").setValue(gender)
+        }
+        if (!curloc.isNullOrBlank()) {
+            myRef.child("Visit").setValue(curloc)
+        }
+        for(i in 0 until interests.size-1) {
+            myRef.child("Interests").child("interest_" + (i+1).toString()).setValue(interests!!.get(i))
+        }
+
+    }
+
     private fun createAccount(email: String, pass: String, phone: String, bio: String, gender: String, curloc: String) {
         // TODO: add validation for email/password
         // Creates account through firebase
@@ -167,12 +204,12 @@ class SignUp : AppCompatActivity() {
                     val user = mAuth!!.currentUser
                     val uid = user!!.uid
 
-                    val myRef = database!!.getReference("UserInfo/" + uid)
+                    val myRef = database!!.getReference("UserInfo/$uid")
                     myRef.child("Bio").setValue(bio)
                     myRef.child("Contact").setValue(phone)
                     myRef.child("Gender").setValue(gender)
                     myRef.child("Visit").setValue(curloc)
-                    for(i in 0..interests!!.size-1) {
+                    for(i in 0 until interests.size-1) {
                         myRef.child("Interests").child("interest_" + (i+1).toString()).setValue(interests!!.get(i))
                     }
 

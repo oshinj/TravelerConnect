@@ -105,7 +105,7 @@ public class Main_User_MyFriend extends AppCompatActivity{
                     LinearLayout.LayoutParams testViewParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 
                     String Bio = dataSnapshot.child("UserInfo").child(UID).child("Bio").getValue().toString();
-                    tv.setText(Bio + " Hit to get his/her number");
+                    tv.setText(Bio + " Hit to get their number");
                     tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25);
                     tv.setLayoutParams(testViewParams);
                     linearLayout2.addView(tv);
